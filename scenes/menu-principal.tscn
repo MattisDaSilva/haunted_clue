@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8fg02mahtnu2"]
+[gd_scene load_steps=7 format=3 uid="uid://b8fg02mahtnu2"]
 
 [ext_resource type="Script" path="res://scripts/menu_principal.gd" id="1_cj08j"]
 [ext_resource type="Texture2D" uid="uid://bot35qa0nlfm4" path="res://assets/menus/logo-jeux.svg" id="2_k4f5b"]
 [ext_resource type="FontFile" uid="uid://bfkdrency3h1k" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_jfuss"]
+[ext_resource type="AudioStream" uid="uid://cdu0odyd7tb3y" path="res://assets/son/musique-ohh-jai-peur.mp3" id="4_xbbbk"]
 
 [sub_resource type="Gradient" id="Gradient_jsar0"]
 offsets = PackedFloat32Array(0, 0.474627, 1)
@@ -61,31 +62,33 @@ alignment = 1
 
 [node name="start-btn" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.501961, 0.137255, 0.109804, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.976471, 0.972549, 1)
+theme_override_colors/font_color = Color(0.501961, 0.137255, 0.109804, 1)
 theme_override_fonts/font = ExtResource("3_jfuss")
 theme_override_font_sizes/font_size = 30
 text = "Start"
 
+[node name="parametre" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.976471, 0.972549, 1)
+theme_override_fonts/font = ExtResource("3_jfuss")
+theme_override_font_sizes/font_size = 30
+text = "Paramètre"
+icon_alignment = 2
+
 [node name="quit-btn" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.976471, 0.972549, 1)
 theme_override_colors/font_color = Color(0.501961, 0.137255, 0.109804, 1)
 theme_override_fonts/font = ExtResource("3_jfuss")
 theme_override_font_sizes/font_size = 30
 text = "Quitter le jeu"
 
-[node name="start-btn" type="Button" parent="."]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 43.0
-offset_right = 128.0
-offset_bottom = 98.0
-theme_override_colors/font_color = Color(1, 0.976471, 0.972549, 1)
-theme_override_fonts/font = ExtResource("3_jfuss")
-theme_override_font_sizes/font_size = 24
-text = "Paramètre"
-icon_alignment = 2
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_xbbbk")
+autoplay = true
 
 [connection signal="button_down" from="VBoxContainer/VBoxContainer/start-btn" to="." method="_on_startbtn_button_down"]
+[connection signal="button_down" from="VBoxContainer/VBoxContainer/parametre" to="." method="_on_parametre_button_down"]
+[connection signal="button_down" from="VBoxContainer/VBoxContainer/parametre" to="." method="_on_startbtn_button_down"]
 [connection signal="button_down" from="VBoxContainer/VBoxContainer/quit-btn" to="." method="_on_quitbtn_button_down"]
-[connection signal="button_down" from="start-btn" to="." method="_on_startbtn_button_down"]
