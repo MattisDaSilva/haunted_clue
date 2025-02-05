@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://iemsrn04f8ea"]
+[gd_scene load_steps=24 format=3 uid="uid://iemsrn04f8ea"]
 
 [ext_resource type="Texture2D" uid="uid://djj5fupdencij" path="res://assets/textures/furnitures.png" id="1_6u3wv"]
 [ext_resource type="Texture2D" uid="uid://bot2vf5dvy18b" path="res://assets/textures/walls.png" id="1_ddi1w"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cffs6gmegamp2" path="res://scenes/slotsContainer.tscn" id="6_a8bvd"]
 [ext_resource type="Script" path="res://scripts/tp_garage.gd" id="11_p7r0y"]
 [ext_resource type="Script" path="res://scripts/tp_cave.gd" id="12_ul5gw"]
+[ext_resource type="AudioStream" uid="uid://cdu0odyd7tb3y" path="res://assets/son/musique-ohh-jai-peur.mp3" id="13_8ejyr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cl0p8"]
 texture = ExtResource("1_6u3wv")
@@ -640,6 +641,11 @@ shape = SubResource("CircleShape2D_xa0tj")
 
 [node name="GoGarage" type="Marker2D" parent="tpGarage"]
 position = Vector2(-332, -190)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_8ejyr")
+autoplay = true
+bus = &"Music"
 
 [connection signal="body_entered" from="tpCave" to="tpCave" method="_on_body_entered"]
 [connection signal="body_entered" from="tpGarage" to="tpGarage" method="_on_body_entered"]
