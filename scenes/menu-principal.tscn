@@ -87,8 +87,8 @@ text = "Quitter le jeu"
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_xbbbk")
 autoplay = true
+bus = &"Music"
 
 [connection signal="button_down" from="VBoxContainer/VBoxContainer/start-btn" to="." method="_on_startbtn_button_down"]
 [connection signal="button_down" from="VBoxContainer/VBoxContainer/parametre" to="." method="_on_parametre_button_down"]
-[connection signal="button_down" from="VBoxContainer/VBoxContainer/parametre" to="." method="_on_startbtn_button_down"]
 [connection signal="button_down" from="VBoxContainer/VBoxContainer/quit-btn" to="." method="_on_quitbtn_button_down"]

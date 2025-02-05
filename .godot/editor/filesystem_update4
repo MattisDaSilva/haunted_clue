@@ -1,0 +1,5 @@
+res://scripts/parametre.gd
+res://scenes/parametre.tscn
+res://scenes/menu-principal.tscn
+res://scenes/house.tscn
+res://scenes/game_over.tscn
