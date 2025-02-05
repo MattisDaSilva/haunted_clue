@@ -1,5 +1,5 @@
-res://scripts/parametre.gd
-res://scenes/parametre.tscn
-res://scenes/menu-principal.tscn
 res://scenes/house.tscn
-res://scenes/game_over.tscn
+res://scenes/menu-principal.tscn
+res://scripts/tp_garage.gd
+res://scripts/tp_cave.gd
+res://scenes/player.tscn

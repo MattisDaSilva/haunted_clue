@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://iemsrn04f8ea"]
+[gd_scene load_steps=23 format=3 uid="uid://iemsrn04f8ea"]
 
 [ext_resource type="Texture2D" uid="uid://djj5fupdencij" path="res://assets/textures/furnitures.png" id="1_6u3wv"]
 [ext_resource type="Texture2D" uid="uid://bot2vf5dvy18b" path="res://assets/textures/walls.png" id="1_ddi1w"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bescfnwjympo5" path="res://assets/textures/stairs.png" id="5_tflxe"]
 [ext_resource type="PackedScene" uid="uid://dbvlf0lowa176" path="res://scenes/heartsContainer.tscn" id="5_xq14p"]
 [ext_resource type="PackedScene" uid="uid://cffs6gmegamp2" path="res://scenes/slotsContainer.tscn" id="6_a8bvd"]
+[ext_resource type="Script" path="res://scripts/tp_garage.gd" id="11_p7r0y"]
+[ext_resource type="Script" path="res://scripts/tp_cave.gd" id="12_ul5gw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cl0p8"]
 texture = ExtResource("1_6u3wv")
@@ -552,6 +554,11 @@ sources/5 = SubResource("TileSetAtlasSource_2ksxo")
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qo4rv"]
 polygon = PackedVector2Array(-467, -44.387, -467, -191.671, -381, -191.671, -381, -144.258, -355, -144.258, -355, -191.671, -205, -191.671, -205, -144.258, -179, -144.258, -179, -191.671, 179, -191.671, 177, 174.522, 112, 174.522, 112, 191.671, 79, 191.671, 79, 178.557, 13, 178.557, 13, 19.1671, -77, 19.1671, -77, 32.2815, -13, 32.2815, -13, 194.698, -179, 194.698, -179, 179.566, -205, 179.566, -205, 194.698, -355, 194.698, -355, 79.6949, -205, 79.6949, -205, 111.976, -179, 111.976, -179, 32.2815, -115, 32.2815, -115, 19.1671, -179, 19.1671, -179, -76.6685, -205, -76.6685, -205, 67.5893, -355, 66.5805, -355, -76.6685, -381, -76.6685, -381, -45.3958, -413, -45.3958, -413, -32.2815, -381, -32.2815, -381, 147.284, -627, 147.284, -627, -32.2815, -451, -32.2815, -451, -44.387)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_33txj"]
+polygon = PackedVector2Array(-643, 396, -643, 542, -413, 542, -413, 396)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xa0tj"]
+
 [node name="House" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -568,7 +575,7 @@ layer_2/tile_data = PackedInt32Array(655334, 262149, 5, 720868, 196613, 3, 78640
 
 [node name="Player" parent="TileMap" instance=ExtResource("2_i83ba")]
 z_index = 4
-position = Vector2(-507, 68.5981)
+position = Vector2(-400, 94.8268)
 scale = Vector2(0.655, 0.66)
 script = ExtResource("3_5g18t")
 
@@ -599,9 +606,40 @@ wall_min_slide_angle = 0.0
 player = NodePath("../TileMap/Player")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
 light_mask = 5
 scale = Vector2(1, 0.991281)
 occluder = SubResource("OccluderPolygon2D_qo4rv")
 
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+visible = false
+occluder = SubResource("OccluderPolygon2D_33txj")
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.156675, 0.156675, 0.156675, 1)
+
+[node name="tpCave" type="Area2D" parent="."]
+position = Vector2(2, 10)
+script = ExtResource("12_ul5gw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tpCave"]
+position = Vector2(-391, 135)
+shape = SubResource("CircleShape2D_xa0tj")
+
+[node name="GoCave" type="Marker2D" parent="tpCave"]
+position = Vector2(-484, 437)
+
+[node name="tpGarage" type="Area2D" parent="."]
+position = Vector2(-63, 299)
+script = ExtResource("11_p7r0y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tpGarage"]
+position = Vector2(-391, 135)
+shape = SubResource("CircleShape2D_xa0tj")
+
+[node name="GoGarage" type="Marker2D" parent="tpGarage"]
+position = Vector2(-332, -190)
+
+[connection signal="body_entered" from="tpCave" to="tpCave" method="_on_body_entered"]
+[connection signal="body_entered" from="tpGarage" to="tpGarage" method="_on_body_entered"]
