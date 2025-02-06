@@ -47,10 +47,43 @@ text = "Crédits"
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/h_separation = 30
-theme_override_constants/v_separation = 50
+theme_override_constants/h_separation = 200
 columns = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.501961, 0.137255, 0.109804, 1)
+theme_override_fonts/font = ExtResource("2_y70pu")
+theme_override_font_sizes/font_size = 20
+text = "Lead developper:
+
+Developper&sound designer:
+
+Marketing manager:
+
+Lead graphic designer:
+
+Graphic designer:
+
+Music :"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.501961, 0.137255, 0.109804, 1)
+theme_override_fonts/font = ExtResource("2_y70pu")
+theme_override_font_sizes/font_size = 20
+text = "Mattis Da Silva
+
+Cody Roux
+
+Manon Leveau
+
+Thieult Bourcier
+
+Ehtan Zawistowski
+
+Kevin MacLeod"
 
 [node name="retour-credits-btn" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
