@@ -5,12 +5,12 @@
 [ext_resource type="FontFile" uid="uid://bfkdrency3h1k" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_jfuss"]
 [ext_resource type="AudioStream" uid="uid://cdu0odyd7tb3y" path="res://assets/son/musique-ohh-jai-peur.mp3" id="4_xbbbk"]
 
-[sub_resource type="Gradient" id="Gradient_jsar0"]
+[sub_resource type="Gradient" id="Gradient_3qb0g"]
 offsets = PackedFloat32Array(0, 0.474627, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_j445n"]
-gradient = SubResource("Gradient_jsar0")
+gradient = SubResource("Gradient_3qb0g")
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -75,10 +75,14 @@ theme_override_font_sizes/font_size = 30
 text = "Paramètre"
 icon_alignment = 2
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/VBoxContainer/parametre"]
-stream = ExtResource("4_xbbbk")
-autoplay = true
-bus = &"Music"
+[node name="credits" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.976471, 0.972549, 1)
+theme_override_colors/font_color = Color(0.501961, 0.137255, 0.109804, 1)
+theme_override_fonts/font = ExtResource("3_jfuss")
+theme_override_font_sizes/font_size = 30
+text = "Crédits"
+icon_alignment = 2
 
 [node name="quit-btn" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -95,4 +99,5 @@ bus = &"Music"
 
 [connection signal="button_down" from="VBoxContainer/VBoxContainer/start-btn" to="." method="_on_startbtn_button_down"]
 [connection signal="button_down" from="VBoxContainer/VBoxContainer/parametre" to="." method="_on_parametre_button_down"]
+[connection signal="button_down" from="VBoxContainer/VBoxContainer/credits" to="." method="_on_credits_button_down"]
 [connection signal="button_down" from="VBoxContainer/VBoxContainer/quit-btn" to="." method="_on_quitbtn_button_down"]
