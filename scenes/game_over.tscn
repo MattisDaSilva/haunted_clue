@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://52mnrclu5812"]
+[gd_scene load_steps=6 format=3 uid="uid://d4byjj46m7ys4"]
 
 [ext_resource type="Script" path="res://scripts/menu_principal.gd" id="1_0ft6l"]
 [ext_resource type="FontFile" uid="uid://bfkdrency3h1k" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_s4bdt"]
@@ -35,17 +35,13 @@ texture = SubResource("GradientTexture1D_j445n")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -405.0
-offset_top = -230.0
-offset_right = 405.0
-offset_bottom = 230.0
+offset_left = -450.0
+offset_right = 450.0
+offset_bottom = 550.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/separation = 100
 alignment = 1
 
@@ -59,6 +55,7 @@ text = "GAME OVER"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 50
 alignment = 1
 
@@ -81,7 +78,7 @@ text = "Retour au menu principal"
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_x5s5k")
 autoplay = true
+bus = &"Music"
 
 [connection signal="button_down" from="VBoxContainer/VBoxContainer/start-btn" to="." method="_on_startbtn_button_down"]
-[connection signal="button_down" from="VBoxContainer/VBoxContainer/menu-btn" to="." method="_on_quitbtn_button_down"]
 [connection signal="button_down" from="VBoxContainer/VBoxContainer/menu-btn" to="." method="_on_menubtn_button_down"]
