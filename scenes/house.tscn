@@ -117,6 +117,58 @@ texture = ExtResource("1_6u3wv")
 1:10/0 = 0
 2:10/0 = 0
 3:10/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+8:7/0 = 0
+5:7/0 = 0
+4:7/0 = 0
+3:7/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+11:8/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+12:8/0 = 0
+12:10/0 = 0
+11:10/0 = 0
+10:10/0 = 0
+9:10/0 = 0
+8:10/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+14:14/0 = 0
+14:13/0 = 0
+14:12/0 = 0
+13:12/0 = 0
+13:13/0 = 0
+13:14/0 = 0
+9:14/0 = 0
+8:14/0 = 0
+7:14/0 = 0
+6:14/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+1:14/0 = 0
+0:14/0 = 0
+1:13/0 = 0
+3:13/0 = 0
+3:14/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+6:10/0 = 0
+5:10/0 = 0
+0:10/0 = 0
+0:9/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2u61t"]
 texture = ExtResource("2_s07ws")
@@ -600,11 +652,13 @@ wall_min_slide_angle = 0.0
 player = NodePath("../TileMap/Player")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
 light_mask = 5
 scale = Vector2(1, 0.991281)
 occluder = SubResource("OccluderPolygon2D_qo4rv")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+visible = false
 occluder = SubResource("OccluderPolygon2D_33txj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -621,6 +675,7 @@ offset_right = 46.0
 offset_right = 46.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.156675, 0.156675, 0.156675, 1)
 
 [node name="tpCave" type="Area2D" parent="."]
@@ -678,6 +733,7 @@ metadata/_edit_use_anchors_ = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer3"]
 stream = ExtResource("16_m1k4y")
 volume_db = 16.217
+bus = &"SFX"
 
 [connection signal="body_entered" from="tpCave" to="tpCave" method="_on_body_entered"]
 [connection signal="body_entered" from="tpGarage" to="tpGarage" method="_on_body_entered"]
