@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0mie84d0mjuh"
-path="res://.godot/imported/furnitures.png-01de5731fb9cecefeecc82f56fd5605b.ctex"
+uid="uid://ckdlrvevp6xh4"
+path="res://.godot/imported/neuille.png-41c9e69d0a48b669b3d769a32acbbb25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/furnitures.png"
-dest_files=["res://.godot/imported/furnitures.png-01de5731fb9cecefeecc82f56fd5605b.ctex"]
+source_file="res://assets/textures/neuille.png"
+dest_files=["res://.godot/imported/neuille.png-41c9e69d0a48b669b3d769a32acbbb25.ctex"]
 
 [params]
 

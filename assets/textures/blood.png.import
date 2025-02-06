@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0mie84d0mjuh"
-path="res://.godot/imported/furnitures.png-01de5731fb9cecefeecc82f56fd5605b.ctex"
+uid="uid://7pwmrcqpfj6a"
+path="res://.godot/imported/blood.png-79ab7314920c2106c28eb8b1ebf92bfd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/furnitures.png"
-dest_files=["res://.godot/imported/furnitures.png-01de5731fb9cecefeecc82f56fd5605b.ctex"]
+source_file="res://assets/textures/blood.png"
+dest_files=["res://.godot/imported/blood.png-79ab7314920c2106c28eb8b1ebf92bfd.ctex"]
 
 [params]
 

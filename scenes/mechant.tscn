@@ -135,7 +135,6 @@ scale = Vector2(1.08628, 0.765802)
 shape = SubResource("CircleShape2D_fqdk3")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-visible = false
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
