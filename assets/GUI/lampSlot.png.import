@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6oqvf2j42cao"
-path="res://.godot/imported/walls.png-ba870a35490c754e1d21d28374ce8bf0.ctex"
+uid="uid://baiqses48h80q"
+path="res://.godot/imported/lampSlot.png-4676da4c7a4f84f5144428d07f6a08be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/walls.png"
-dest_files=["res://.godot/imported/walls.png-ba870a35490c754e1d21d28374ce8bf0.ctex"]
+source_file="res://assets/GUI/lampSlot.png"
+dest_files=["res://.godot/imported/lampSlot.png-4676da4c7a4f84f5144428d07f6a08be.ctex"]
 
 [params]
 

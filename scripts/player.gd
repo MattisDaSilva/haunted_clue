@@ -124,6 +124,49 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 			call_deferred("game_over")
 
 		print_debug("pv =", currentHealth)
+		print_debug("key =", key)
+		print_debug("lamp =", lamp)
 
 func game_over():
 	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+
+
+@export var key: int = 0
+@export var lamp: int = 0
+
+func _ready():
+	update_inventory() 
+
+func update_inventory():
+	if key == 0 and lamp == 0:
+		$"../../CanvasLayer2/emptySlotsContainer".visible = true
+		$"../../CanvasLayer2/lampNoKeySlotsContainers".visible = false
+		$"../../CanvasLayer2/KeyNoLampSlotsContainer".visible = false
+		$"../../CanvasLayer2/fullSlotsContainer".visible = false
+
+	elif key == 1 and lamp == 0:
+		$"../../CanvasLayer2/emptySlotsContainer".visible = false
+		$"../../CanvasLayer2/lampNoKeySlotsContainers".visible = false
+		$"../../CanvasLayer2/KeyNoLampSlotsContainer".visible = true
+		$"../../CanvasLayer2/fullSlotsContainer".visible = false
+
+	elif key == 0 and lamp == 1:
+		$"../../CanvasLayer2/emptySlotsContainer".visible = false
+		$"../../CanvasLayer2/lampNoKeySlotsContainers".visible = true
+		$"../../CanvasLayer2/KeyNoLampSlotsContainer".visible = false
+		$"../../CanvasLayer2/fullSlotsContainer".visible = false
+
+	elif key == 1 and lamp == 1:
+		$"../../CanvasLayer2/emptySlotsContainer".visible = false
+		$"../../CanvasLayer2/lampNoKeySlotsContainers".visible = true
+		$"../../CanvasLayer2/KeyNoLampSlotsContainer".visible = false
+		$"../../CanvasLayer2/fullSlotsContainer".visible = true
+
+
+func _on_key_collected():
+	key = 1
+	update_inventory()
+
+func _on_lamp_collected():
+	lamp = 1
+	update_inventory()

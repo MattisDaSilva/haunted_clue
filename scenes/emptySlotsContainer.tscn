@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cffs6gmegamp2"]
+[gd_scene load_steps=3 format=3 uid="uid://cpeeve1fbmcw8"]
 
 [ext_resource type="Texture2D" uid="uid://b5y3bcuh4etyt" path="res://assets/GUI/slot.png" id="1_0ikos"]
+[ext_resource type="Texture2D" uid="uid://vvfu5i5ln47g" path="res://assets/GUI/keySlot.png" id="1_yh2m3"]
 
-[node name="slotsContainer" type="HBoxContainer"]
+[node name="emptySlotsContainer" type="HBoxContainer"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -20,7 +21,7 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
 [node name="slot" type="Sprite2D" parent="slotGUI"]
-texture = ExtResource("1_0ikos")
+texture = ExtResource("1_yh2m3")
 centered = false
 
 [node name="slotGUI2" type="Panel" parent="."]
