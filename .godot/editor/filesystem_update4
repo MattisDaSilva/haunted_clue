@@ -1,14 +1,5 @@
 res://scenes/menu-principal.tscn
 res://scenes/house.tscn
-<<<<<<< Updated upstream
-res://scenes/player.tscn
-res://scenes/mechant.tscn
-=======
 res://scenes/game_over.tscn
 res://scenes/parametre.tscn
-res://scripts/parametre.gd
-res://default_bus_layout.tres
-res://scripts/menu_principal.gd
 res://scenes/credits.tscn
-res://scripts/credits.gd
->>>>>>> Stashed changes
