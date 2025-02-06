@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://ym3rrlvgei13"]
+
+[ext_resource type="Texture2D" uid="uid://ch853und1ra05" path="res://assets/GUI/health.png" id="1_32nbv"]
+
+[node name="fullHP" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+theme_override_constants/separation = -1
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+texture = ExtResource("1_32nbv")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Panel2" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel2"]
+texture = ExtResource("1_32nbv")
+centered = false
+region_enabled = true
+region_rect = Rect2(32, 0, 16, 16)
+
+[node name="Panel3" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel3"]
+texture = ExtResource("1_32nbv")
+centered = false
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)

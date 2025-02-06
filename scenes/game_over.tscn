@@ -83,5 +83,5 @@ stream = ExtResource("4_x5s5k")
 autoplay = true
 
 [connection signal="button_down" from="VBoxContainer/VBoxContainer/start-btn" to="." method="_on_startbtn_button_down"]
-[connection signal="button_down" from="VBoxContainer/VBoxContainer/menu-btn" to="." method="_on_menubtn_button_down"]
 [connection signal="button_down" from="VBoxContainer/VBoxContainer/menu-btn" to="." method="_on_quitbtn_button_down"]
+[connection signal="button_down" from="VBoxContainer/VBoxContainer/menu-btn" to="." method="_on_menubtn_button_down"]

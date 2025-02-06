@@ -1,17 +1,21 @@
-[gd_scene load_steps=23 format=3 uid="uid://iemsrn04f8ea"]
+[gd_scene load_steps=27 format=3 uid="uid://iemsrn04f8ea"]
 
 [ext_resource type="Texture2D" uid="uid://djj5fupdencij" path="res://assets/textures/furnitures.png" id="1_6u3wv"]
 [ext_resource type="Texture2D" uid="uid://bot2vf5dvy18b" path="res://assets/textures/walls.png" id="1_ddi1w"]
+[ext_resource type="PackedScene" uid="uid://dp4spk1jeq653" path="res://scenes/screamer.tscn" id="1_sxnro"]
 [ext_resource type="PackedScene" uid="uid://bgt7r41iyfiof" path="res://scenes/player.tscn" id="2_i83ba"]
 [ext_resource type="Texture2D" uid="uid://cd5k0qukvaqii" path="res://assets/textures/car.png" id="2_s07ws"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="3_5g18t"]
 [ext_resource type="Texture2D" uid="uid://ckq7bakw1iel8" path="res://assets/textures/ground.png" id="3_hxwxc"]
 [ext_resource type="PackedScene" uid="uid://cmhuim5sci5y6" path="res://scenes/mechant.tscn" id="5_puuyr"]
 [ext_resource type="Texture2D" uid="uid://bescfnwjympo5" path="res://assets/textures/stairs.png" id="5_tflxe"]
-[ext_resource type="PackedScene" uid="uid://dbvlf0lowa176" path="res://scenes/heartsContainer.tscn" id="5_xq14p"]
+[ext_resource type="PackedScene" uid="uid://dbvlf0lowa176" path="res://scenes/oneHeartsContainer.tscn" id="5_xq14p"]
 [ext_resource type="PackedScene" uid="uid://cffs6gmegamp2" path="res://scenes/slotsContainer.tscn" id="6_a8bvd"]
+[ext_resource type="PackedScene" uid="uid://ym3rrlvgei13" path="res://scenes/threeHeartsContainer.tscn" id="7_p5v80"]
+[ext_resource type="PackedScene" uid="uid://cvg255ecdsjhj" path="res://scenes/twoHeartsContainer.tscn" id="8_r5xq6"]
 [ext_resource type="Script" path="res://scripts/tp_garage.gd" id="11_p7r0y"]
 [ext_resource type="Script" path="res://scripts/tp_cave.gd" id="12_ul5gw"]
+[ext_resource type="AudioStream" uid="uid://cdu0odyd7tb3y" path="res://assets/son/musique-ohh-jai-peur.mp3" id="13_8ejyr"]
+[ext_resource type="AudioStream" uid="uid://2feaxqoe5n6i" path="res://assets/sounds/scream.mp3" id="16_m1k4y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cl0p8"]
 texture = ExtResource("1_6u3wv")
@@ -573,25 +577,15 @@ layer_2/name = "stairs"
 layer_2/z_index = 6
 layer_2/tile_data = PackedInt32Array(655334, 262149, 5, 720868, 196613, 3, 786404, 196613, 4, 524261, 196613, 3, 589797, 196613, 4, 655333, 196613, 5, 720869, 196613, 6, 786405, 196613, 7, 589798, 262149, 4, 720870, 262149, 6, 524263, 327685, 3, 589799, 327685, 4, 655335, 327685, 5, 1769443, 196613, 5, 1834979, 196613, 6, 1900515, 196613, 7, 1703908, 262149, 4, 1769444, 262149, 5, 1834980, 262149, 6, 1703909, 327685, 4, 1769445, 327685, 5)
 
-[node name="Player" parent="TileMap" instance=ExtResource("2_i83ba")]
+[node name="Player" parent="TileMap" groups=["Player"] instance=ExtResource("2_i83ba")]
 z_index = 4
-position = Vector2(-400, 94.8268)
+position = Vector2(-529, 487.248)
 scale = Vector2(0.655, 0.66)
-script = ExtResource("3_5g18t")
 
 [node name="Camera2D" type="Camera2D" parent="TileMap/Player"]
 zoom = Vector2(5, 5)
 process_callback = 0
 position_smoothing_enabled = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-scale = Vector2(2, 2)
-transform = Transform2D(2, 0, 0, 2, 0, 0)
-
-[node name="HeartsContainer" parent="CanvasLayer" instance=ExtResource("5_xq14p")]
-offset_top = -0.5
-offset_right = 56.0
-offset_bottom = 39.5
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
@@ -599,24 +593,34 @@ offset_bottom = 39.5
 scale = Vector2(2, 2)
 
 [node name="mechant" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_puuyr")]
-position = Vector2(-43, 67)
+position = Vector2(-492, 57)
 scale = Vector2(1, 0.991281)
 motion_mode = 1
 wall_min_slide_angle = 0.0
 player = NodePath("../TileMap/Player")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-visible = false
 light_mask = 5
 scale = Vector2(1, 0.991281)
 occluder = SubResource("OccluderPolygon2D_qo4rv")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
-visible = false
 occluder = SubResource("OccluderPolygon2D_33txj")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[node name="oneHP" parent="CanvasLayer" instance=ExtResource("5_xq14p")]
+offset_right = 46.0
+
+[node name="twoHP" parent="CanvasLayer" instance=ExtResource("8_r5xq6")]
+offset_right = 46.0
+
+[node name="fullHP" parent="CanvasLayer" instance=ExtResource("7_p5v80")]
+offset_right = 46.0
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.156675, 0.156675, 0.156675, 1)
 
 [node name="tpCave" type="Area2D" parent="."]
@@ -640,6 +644,40 @@ shape = SubResource("CircleShape2D_xa0tj")
 
 [node name="GoGarage" type="Marker2D" parent="tpGarage"]
 position = Vector2(-332, -190)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_8ejyr")
+autoplay = true
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="HBoxContainer" parent="CanvasLayer3" instance=ExtResource("1_sxnro")]
+visible = false
+z_index = 10
+offset_left = 0.0
+offset_top = 3.05176e-05
+offset_right = 0.0
+offset_bottom = 3.05176e-05
+scale = Vector2(8.72, 8.72)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer3"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = -1
+anchor_right = 1.07174
+anchor_bottom = 1.06771
+offset_right = -1364.0
+offset_bottom = -720.0
+scale = Vector2(14.64, 8.2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.254902, 0.27451, 0.298039, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer3"]
+stream = ExtResource("16_m1k4y")
+volume_db = 16.217
 
 [connection signal="body_entered" from="tpCave" to="tpCave" method="_on_body_entered"]
 [connection signal="body_entered" from="tpGarage" to="tpGarage" method="_on_body_entered"]
