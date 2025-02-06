@@ -1,2 +1,4 @@
+res://scenes/menu-principal.tscn
 res://scenes/house.tscn
-res://scenes/player.tscn
+res://scenes/game_over.tscn
+res://scenes/parametre.tscn
