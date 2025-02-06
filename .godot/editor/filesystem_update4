@@ -1,7 +1,5 @@
+res://scenes/menu-principal.tscn
 res://scenes/house.tscn
-res://scenes/player.tscn
-res://scenes/mechant.tscn
-res://scenes/key.tscn
-res://scenes/keyNoLampSlotsContainer.tscn
-res://scenes/caveKey.tscn
-res://scripts/cave_key.gd
+res://scenes/game_over.tscn
+res://scenes/parametre.tscn
+res://scenes/credits.tscn
