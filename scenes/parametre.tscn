@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://w754suxf3d2p"]
+[gd_scene load_steps=3 format=3 uid="uid://w754suxf3d2p"]
 
 [ext_resource type="Script" path="res://scripts/parametre.gd" id="1_uvbot"]
 [ext_resource type="FontFile" uid="uid://bfkdrency3h1k" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_51cju"]
-[ext_resource type="AudioStream" uid="uid://cdu0odyd7tb3y" path="res://assets/son/musique-ohh-jai-peur.mp3" id="2_lfbl7"]
 
 [node name="parametre" type="Control"]
 layout_mode = 3
@@ -90,10 +89,9 @@ theme_override_fonts/font = ExtResource("2_51cju")
 theme_override_font_sizes/font_size = 30
 text = "Retour"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_lfbl7")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 autoplay = true
-bus = &"Music"
+bus = &"SFX"
 
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/music-slider" to="." method="_on_musicslider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/SFX-slider" to="." method="_on_sf_xslider_value_changed"]

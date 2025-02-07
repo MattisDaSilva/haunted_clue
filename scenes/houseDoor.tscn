@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b22it8gybqi6l"]
+
+[ext_resource type="Script" path="res://scripts/house_door.gd" id="1_krod5"]
+[ext_resource type="Texture2D" uid="uid://dliqmknwki4u8" path="res://assets/textures/door.png" id="2_87fes"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_165vt"]
+size = Vector2(16, 10.5)
+
+[node name="houseDoor" type="Area2D"]
+script = ExtResource("1_krod5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_87fes")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.75)
+shape = SubResource("RectangleShape2D_165vt")

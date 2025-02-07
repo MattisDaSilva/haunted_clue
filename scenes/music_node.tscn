@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cemc5p04b6bsq"]
+
+[ext_resource type="AudioStream" uid="uid://cdu0odyd7tb3y" path="res://assets/son/musique-ohh-jai-peur.mp3" id="1_esuev"]
+
+[node name="music-node" type="Node"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_esuev")
+volume_db = -15.0
+autoplay = true
+bus = &"Music"

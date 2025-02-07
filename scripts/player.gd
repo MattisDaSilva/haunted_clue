@@ -51,6 +51,7 @@ func update_animation(direction):
 			anim_sprite.flip_h = direction.x > 0 
 	
 	elif currentHealth == 1:
+		speed = 35
 		if direction.y > 0:
 			anim_sprite.play("oneFeetDown")
 		elif direction.y < 0:
@@ -127,3 +128,49 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 
 func game_over():
 	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+	
+@export var key: int = 0
+@export var lamp: int = 0
+
+func _ready():
+	update_inventory()
+
+func update_inventory():
+	if key == 0 and lamp == 0:
+		$"../../CanvasLayer2/emptySlots".visible = true
+		$"../../CanvasLayer2/oneKeyOneLampSlots".visible = false
+		$"../../CanvasLayer2/oneKeySlots".visible = false
+		$"../../CanvasLayer2/oneLampSlots".visible = false
+
+	elif key == 1 and lamp == 1:
+		$"../../CanvasLayer2/emptySlots".visible = false
+		$"../../CanvasLayer2/oneKeyOneLampSlots".visible = true
+		$"../../CanvasLayer2/oneKeySlots".visible = false
+		$"../../CanvasLayer2/oneLampSlots".visible = false
+
+	elif key == 1 and lamp == 0:
+		$"../../CanvasLayer2/emptySlots".visible = true
+		$"../../CanvasLayer2/oneKeyOneLampSlots".visible = false
+		$"../../CanvasLayer2/oneKeySlots".visible = true
+		$"../../CanvasLayer2/oneLampSlots".visible = false
+
+	elif key == 0 and lamp == 1:
+		$"../../CanvasLayer2/emptySlots".visible = true
+		$"../../CanvasLayer2/oneKeyOneLampSlots".visible = false
+		$"../../CanvasLayer2/oneKeySlots".visible = false
+		$"../../CanvasLayer2/oneLampSlots".visible = true
+
+
+func _on_key_collected():
+	key = 1
+	update_inventory()
+	print_debug("🔑 Clé ajoutée ! Inventaire mis à jour.")
+
+func _on_lamp_collected():
+	lamp = 1
+	update_inventory()
+	print_debug("💡 Lampe ajoutée ! Inventaire mis à jour.")
+	$AnimatedSprite2D/PointLight2D.visible = false
+	$AnimatedSprite2D/PointLight2DLamp.visible = true
+	$PointLight2D3.visible = false
+	$PointLight2DLamp.visible = true

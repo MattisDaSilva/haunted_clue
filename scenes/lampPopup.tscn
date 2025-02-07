@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://157fct3bynuk"]
+
+[ext_resource type="Script" path="res://scripts/key_popup.gd" id="1_ji6ja"]
+[ext_resource type="Texture2D" uid="uid://c1dpy5chgpv1i" path="res://assets/textures/lampPopup.png" id="2_d81gv"]
+[ext_resource type="FontFile" uid="uid://bfkdrency3h1k" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_2i71v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nk3ca"]
+line_spacing = 2.0
+font = ExtResource("3_2i71v")
+font_size = 11
+
+[node name="lampPopup" type="HBoxContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+script = ExtResource("1_ji6ja")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+offset_left = -160.0
+offset_top = -10.0
+offset_right = -80.0
+offset_bottom = 30.0
+scale = Vector2(4, 4)
+texture = ExtResource("2_d81gv")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = -65.0
+offset_top = 45.0
+offset_right = 152.0
+offset_bottom = 72.0
+text = "Vous avez trouvez une lampe torche !"
+label_settings = SubResource("LabelSettings_nk3ca")
+autowrap_mode = 2

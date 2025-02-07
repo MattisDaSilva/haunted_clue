@@ -1,5 +1,13 @@
-res://scenes/menu-principal.tscn
 res://scenes/house.tscn
-res://scenes/game_over.tscn
-res://scenes/parametre.tscn
+res://scenes/bathKey.tscn
+res://scenes/houseDoor.tscn
+res://scenes/doorPopup3.tscn
+res://scenes/win.tscn
+res://scripts/credits.gd
 res://scenes/credits.tscn
+res://scenes/parametre.tscn
+res://scripts/introAnimeControl.gd
+res://scenes/introAnime.tscn
+res://scripts/house.gd
+res://scripts/canvas_layer_7.gd
+res://scripts/win_zone.gd

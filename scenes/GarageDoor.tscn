@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6sr8i2cpu4om"]
+
+[ext_resource type="Script" path="res://scripts/garage_door.gd" id="1_h3ura"]
+[ext_resource type="Texture2D" uid="uid://dliqmknwki4u8" path="res://assets/textures/door.png" id="2_smf3t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_165vt"]
+size = Vector2(16, 5)
+
+[node name="GarageDoor" type="Area2D"]
+script = ExtResource("1_h3ura")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_smf3t")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_165vt")

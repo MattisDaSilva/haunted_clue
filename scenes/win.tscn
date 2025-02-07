@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://xxbnrdg7w5dk"]
+
+[ext_resource type="Script" path="res://scenes/win.gd" id="1_4llom"]
+[ext_resource type="FontFile" uid="uid://bfkdrency3h1k" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_hkxti"]
+[ext_resource type="AudioStream" uid="uid://cdpud1fa3eub1" path="res://assets/sounds/win-man.mp3" id="3_m0okl"]
+[ext_resource type="AudioStream" uid="uid://ia3rqghb7vw2" path="res://assets/sounds/VICTORYY-sound.mp3" id="4_k3h47"]
+
+[sub_resource type="Gradient" id="Gradient_3qb0g"]
+offsets = PackedFloat32Array(0, 0.474627, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uqguj"]
+gradient = SubResource("Gradient_3qb0g")
+
+[node name="win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 75.0
+offset_right = 3.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_4llom")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -19.0
+offset_top = -50.0
+offset_right = 1005.0
+offset_bottom = 718.0
+scale = Vector2(1.39233, 1.03646)
+texture = SubResource("GradientTexture1D_uqguj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -450.0
+offset_right = 450.0
+offset_bottom = 550.0
+grow_horizontal = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.501961, 0.137255, 0.109804, 1)
+theme_override_fonts/font = ExtResource("2_hkxti")
+theme_override_font_sizes/font_size = 100
+text = "Bravo"
+
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.501961, 0.137255, 0.109804, 1)
+theme_override_fonts/font = ExtResource("2_hkxti")
+theme_override_font_sizes/font_size = 65
+text = "Tu t'es échappé"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="win-menu-btn" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.976471, 0.972549, 1)
+theme_override_colors/font_color = Color(0.501961, 0.137255, 0.109804, 1)
+theme_override_fonts/font = ExtResource("2_hkxti")
+theme_override_font_sizes/font_size = 30
+text = "Retour au menu principal"
+
+[node name="win-quitter-btn" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.976471, 0.972549, 1)
+theme_override_colors/font_color = Color(0.501961, 0.137255, 0.109804, 1)
+theme_override_fonts/font = ExtResource("2_hkxti")
+theme_override_font_sizes/font_size = 30
+text = "Quitter le jeu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m0okl")
+volume_db = 10.0
+autoplay = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_k3h47")
+volume_db = 24.0
+autoplay = true
+
+[connection signal="button_down" from="VBoxContainer/VBoxContainer/win-menu-btn" to="." method="_on_winmenubtn_button_down"]
+[connection signal="button_down" from="VBoxContainer/VBoxContainer/win-quitter-btn" to="." method="_on_winquitterbtn_button_down"]

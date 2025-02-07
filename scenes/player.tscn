@@ -320,7 +320,7 @@ range_item_cull_mask = 5
 shadow_enabled = true
 shadow_filter = 2
 texture = SubResource("GradientTexture2D_5l6uf")
-texture_scale = 2.0
+texture_scale = 1.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 30)

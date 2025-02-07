@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://yxj5ik7kfu5b"]
+
+[ext_resource type="Texture2D" uid="uid://1b1b746qd2nr" path="res://assets/GUI/keySlot.png" id="1_6141c"]
+[ext_resource type="Texture2D" uid="uid://b5y3bcuh4etyt" path="res://assets/GUI/slot.png" id="1_bmq53"]
+
+[node name="emptySlots" type="HBoxContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -34.0
+offset_top = -32.0
+offset_right = 34.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(0, 50)
+
+[node name="slotGUI" type="Panel" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="slot" type="Sprite2D" parent="slotGUI"]
+texture = ExtResource("1_6141c")
+centered = false
+
+[node name="slotGUI2" type="Panel" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="slot" type="Sprite2D" parent="slotGUI2"]
+texture = ExtResource("1_bmq53")
+centered = false
